@@ -14,6 +14,8 @@ class App extends Component {
       <Provider store={store}>
         <Navbar />
         <Landing></Landing>
+        <br/>
+        <br/>
         <Footer />
       </Provider>
     )
