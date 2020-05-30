@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 export class SearchForm extends Component {
 
     onChange = e => {
-        this.props.searchMovies(e.target.value)
+        this.props.searchMovie(e.target.value)
     }
 
     render() {
