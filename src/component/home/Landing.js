@@ -6,6 +6,7 @@ export class Landing extends Component {
         return (
             <div className = "container">
                 <SearchForm/>
+                
             </div>
         )
     }
