@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import {searchMovies} from '../../actions/searchActions'
+import React, { Component } from 'react';
+import { searchMovie } from '../../actions/searchActions';
+import { connect } from 'react-redux';
 
 
 export class SearchForm extends Component {
-    
-    onChange = e =>{
+
+    onChange = e => {
         this.props.searchMovies(e.target.value)
     }
-    
+
     render() {
         return (
             <div className="jumbotron jumbotron-fluid mt-5 text-center">
@@ -21,7 +22,7 @@ export class SearchForm extends Component {
                             className="form-control"
                             name="searchText"
                             placeholder="Search Movies, TV Series ..."
-                            onChange = {this.onChange}
+                            onChange={this.onChange}
                         />
                         <button type="submit" className="btn btn-primary btn-bg mt-3">
                             Search
@@ -33,4 +34,9 @@ export class SearchForm extends Component {
     }
 }
 
-export default SearchForm
+
+const mapStateToProp = state => ({
+    text:state.movies.text
+});
+
+export default connect(mapStateToProp, { searchMovie })(SearchForm);
