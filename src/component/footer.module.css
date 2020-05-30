@@ -12,3 +12,13 @@
  .p{
      padding-top: 10px;
  }
+
+ .bottomright {
+    position: absolute;
+    bottom: 26px;
+    right: 16px;
+  }
+
+  #linkedin-logo {
+    color: #00d8ff;
+  }
