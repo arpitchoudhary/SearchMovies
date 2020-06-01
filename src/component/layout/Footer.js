@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className={styles.footer}>
             <p className={styles.p}>Developed By Arpit Choudhary</p>
-            <div className={styles.bottomright}>
+            <div>
                 <a href="https://www.linkedin.com/in/arpitchoudhary90/" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin-in" id="linked-logo"></i>
                 </a>

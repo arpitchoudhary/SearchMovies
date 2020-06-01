@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import MovieCard from './MovieCard'
+import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+
+import MovieCard from './MovieCard';
 
 export class MovieContainer extends Component {
-    render() {
+  render() {
+    const { movies } = this.props;
+    let content = '';
 
-        const { movies } = this.props;
-        let content = '';
-
-        content = movies.length > 0 ? movies.map((movie, index) => <MovieCard key={index} movie={movie} />) : null
-        return (
-
-            <div className="row">
-                {content}
-            </div>
-        )
-    }
+    content =
+      movies.Response === 'True'
+        ? movies.Search.map((movie, index) => (
+            <MovieCard key={index} movie={movie} />
+          ))
+        : null;
+    return <div className="row">{content}</div>;
+  }
 }
 
-const mapStateToProp = state => ({
-    movies: state.movies.movies
-})
+const mapStateToProps = state => ({
+  movies: state.movies.movies
+});
 
-export default connect(mapStateToProp)(MovieContainer)
+export default connect(mapStateToProps)(MovieContainer);

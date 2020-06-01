@@ -1,23 +1,25 @@
-import React, { Component } from 'react'
-import SearchForm from './SearchForm'
-import { connect } from 'react-redux'
-import Spinner from '../layout/Spinner'
-import MovieContainer from '../home/MovieContainer'
+import React, { Component } from 'react';
 
-class Landing extends Component {
-    render() {
-        const { loading } = this.props.loading
-        return (
-            <div className="container">
-                <SearchForm />
-                {loading ? <Spinner/> : <MovieContainer/>}
-            </div>
-        )
-    }
+import { connect } from 'react-redux';
+
+import SearchForm from './SearchForm';
+import MovieContainer from './MovieContainer';
+import Spinner from '../layout/Spinner';
+
+export class Landing extends Component {
+  render() {
+    const { loading } = this.props;
+    return (
+      <div className="container">
+        <SearchForm />
+        {loading ? <Spinner /> : <MovieContainer />}
+      </div>
+    );
+  }
 }
 
-const mapStateToProp = state => ({
-    loading: state.movies.loading
-})
+const mapStateToProps = state => ({
+  loading: state.movies.loading
+});
 
-export default connect(mapStateToProp)(Landing)
+export default connect(mapStateToProps)(Landing);
